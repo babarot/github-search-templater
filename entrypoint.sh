@@ -3,7 +3,7 @@
 set -ex
 
 echo "${INPUT_TEMPLATE}" >template.txt
-/usr/bin/github-search-templater -t template.txt "${INPUT_QUERY}" > generated.md
+github-search-templater -t template.txt "${INPUT_QUERY}" > generated.md
 
 curl \
   -H "Authorization: token ${GITHUB_TOKEN}" \
