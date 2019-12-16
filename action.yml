@@ -1,0 +1,46 @@
+name: 'Any file updator based on GitHub search query'
+description: 'bla bla bla'
+author: 'b4b4r07'
+inputs:
+  template:
+    description: 'Template'
+    required: true
+    default: |
+      {{ range . }}
+      ### {{ .Name }}
+
+      {{ .Description }}
+
+      {{ .URL }}
+      {{ end }}
+  query:
+    description: 'Query'
+    required: true
+    default: ''
+  repo:
+    description: 'Repo name'
+    required: true
+    default: ''
+  author:
+    description: 'PR sender'
+    required: true
+    default: ''
+  email:
+    description: 'PR sender email'
+    required: true
+    default: ''
+  prbody:
+    description: 'PR body'
+    required: false
+    default: |
+      ## WHAT
+      Update some files
+      ## WHY
+      Some updates are detected by https://github.com/b4b4r07/github-search-templater
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'alert-triangle'
+  color: 'gray-dark'
